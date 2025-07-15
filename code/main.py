@@ -13,12 +13,14 @@ def main(person_gender, is_working):
 
     highest_height = 0
 
-    if person_gender == "Male" and is_working == True: # мужчина - работает
+    # мужчина - работает
+    if person_gender == "Male" and is_working == True:
         for row in range(0, len(file)):
             if file[row]['appearance']['gender']  == 'Male' and file[row]['work']['occupation'] != '-':
 
                 height = file[row]['appearance']['height'][1]
 
+                # форматирование вывода переменной роста
                 if height[-2:] == "cm":
                     height = height[:-3]
                     height = int(height)
@@ -37,15 +39,17 @@ def main(person_gender, is_working):
             else:
                 continue
 
-        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕго рост = {highest_height}")
-        return highest_height, highest_height
+        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕго рост = {highest_height} см")
+        return highest_hero, highest_height
 
-    elif person_gender == "Male" and is_working == False: # мужчина - не работает
+    # мужчина - не работает
+    elif person_gender == "Male" and is_working == False:
         for row in range(0, len(file)):
             if file[row]['appearance']['gender'] == 'Male' and file[row]['work']['occupation'] == '-':
 
                 height = file[row]['appearance']['height'][1]
 
+                # форматирование вывода переменной роста
                 if height[-2:] == "cm":
                     height = height[:-3]
                     height = int(height)
@@ -64,15 +68,17 @@ def main(person_gender, is_working):
             else:
                 continue
 
-        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕго рост = {highest_height}")
-        return highest_height, highest_height
+        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕго рост = {highest_height} см")
+        return highest_hero, highest_height
 
-    elif person_gender == "Female" and is_working == True: # женщина - работает
+    # женщина - работает
+    elif person_gender == "Female" and is_working == True:
         for row in range(0, len(file)):
             if file[row]['appearance']['gender'] == 'Female' and file[row]['work']['occupation'] != '-':
 
                 height = file[row]['appearance']['height'][1]
 
+                # форматирование вывода переменной роста
                 if height[-2:] == "cm" or height[-2:] == "kg": # в записи с номером 198 "height": ["-", "0 kg"]
                     height = height[:-3]
                     height = int(height)
@@ -91,15 +97,17 @@ def main(person_gender, is_working):
             else:
                 continue
 
-        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕе рост = {highest_height}")
-        return highest_height, highest_height
+        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕе рост = {highest_height} см")
+        return highest_hero, highest_height
 
-    elif person_gender == "Female" and is_working == False: # женщина - не работает
+    # женщина - не работает
+    elif person_gender == "Female" and is_working == False:
         for row in range(0, len(file)):
             if file[row]['appearance']['gender'] == 'Female' and file[row]['work']['occupation'] == '-':
 
                 height = file[row]['appearance']['height'][1]
 
+                # форматирование вывода переменной роста
                 if height[-2:] == "cm":
                     height = height[:-3]
                     height = int(height)
@@ -118,8 +126,8 @@ def main(person_gender, is_working):
             else:
                 continue
 
-        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕе рост = {highest_height}")
-        return highest_height, highest_height
+        print(f"\nЭто самый большой персонаж: {highest_hero} \nЕе рост = {highest_height} см")
+        return highest_hero, highest_height
 
     else:
         print("ERROR")
@@ -145,5 +153,6 @@ elif work.lower() == "нет":
 else:
     print("Ошибка! Неверное значение переменной work")
     exit()
+
 
 main(gender, work)
